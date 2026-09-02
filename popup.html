@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nine Vicious Blocker</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <img class="logo" src="icons/icon-128.png" alt="">
+        <div>
+          <h1>Nine Vicious Blocker</h1>
+          <p>we sick and tired of this nigga.</p>
+        </div>
+      </header>
+
+      <label class="switch-row">
+        <span><strong>Blocker</strong><small id="status">On</small></span>
+        <input id="enabled" type="checkbox" checked>
+        <span class="switch" aria-hidden="true"></span>
+      </label>
+
+      <label class="terms-label" for="terms">Blocked Nine Vicious references.</label>
+      <textarea id="terms" rows="4" spellcheck="false"></textarea>
+      <p class="hint">One phrase per line. Changes save automatically.</p>
+      <div id="saved" role="status" aria-live="polite"></div>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
