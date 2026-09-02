@@ -1,20 +1,28 @@
-const DEFAULTS = {
-  enabled: true,
-  terms: ["nine vicious", "ninevicious"]
-};
+const DEFAULTS = { enabled: true };
+const BLOCKED_TERMS = [
+  "Nine Vicious",
+  "B4EM",
+  "Studio Addict",
+  "Tumblr Music",
+  "B4TM",
+  "B4SA",
+  "B4FN",
+  "FN",
+  "Trevon O'Ryan Echols"
+];
 
 let settings = DEFAULTS;
 let scanQueued = false;
 
-function normalizedTerms(value) {
-  return (Array.isArray(value) ? value : DEFAULTS.terms)
+function normalizedTerms() {
+  return BLOCKED_TERMS
     .map((term) => term.trim().toLocaleLowerCase())
     .filter(Boolean);
 }
 
 function matchesBlockedTerm(post) {
   const text = post.innerText.toLocaleLowerCase();
-  return normalizedTerms(settings.terms).some((term) => text.includes(term));
+  return normalizedTerms().some((term) => text.includes(term));
 }
 
 function createWarning(post) {
@@ -133,7 +141,6 @@ async function loadSettings() {
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== "sync") return;
   if (changes.enabled) settings.enabled = changes.enabled.newValue;
-  if (changes.terms) settings.terms = changes.terms.newValue;
   restoreAllPosts();
   queueScan();
 });

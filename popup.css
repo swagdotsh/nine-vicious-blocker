@@ -24,8 +24,8 @@ input:checked + .switch { background: #16833b; }
 input:checked + .switch::after { left: 23px; }
 input:focus-visible + .switch { outline: 2px solid #fff; outline-offset: 2px; }
 
-.terms-label { display: block; margin: 18px 0 7px; font-weight: 700; }
-textarea { box-sizing: border-box; width: 100%; resize: vertical; padding: 8px; color: #fff; background: #000; border: 1px solid #777; border-radius: 0; font: 13px/1.45 Arial, sans-serif; outline: none; }
-textarea:focus { border-color: #fff; }
-.hint { margin-top: 6px; }
+.blocklist { margin-top: 18px; }
+.blocklist h2 { margin: 0 0 7px; font-size: 14px; }
+.blocklist ul { margin: 0; padding-left: 20px; color: #bbb; font-size: 12px; }
+.blocklist li { margin: 2px 0; }
 #saved { height: 18px; margin-top: 8px; color: #fff; font-size: 12px; text-align: right; }

@@ -1,7 +1,6 @@
-const DEFAULTS = { enabled: true, terms: ["nine vicious", "ninevicious"] };
+const DEFAULTS = { enabled: true };
 const enabled = document.querySelector("#enabled");
 const status = document.querySelector("#status");
-const terms = document.querySelector("#terms");
 const saved = document.querySelector("#saved");
 let saveTimer;
 
@@ -18,7 +17,6 @@ function showSaved() {
 async function initialize() {
   const settings = await chrome.storage.sync.get(DEFAULTS);
   enabled.checked = settings.enabled;
-  terms.value = settings.terms.join("\n");
   updateStatus();
 }
 
@@ -26,15 +24,6 @@ enabled.addEventListener("change", async () => {
   updateStatus();
   await chrome.storage.sync.set({ enabled: enabled.checked });
   showSaved();
-});
-
-terms.addEventListener("input", () => {
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(async () => {
-    const nextTerms = terms.value.split("\n").map((term) => term.trim()).filter(Boolean);
-    await chrome.storage.sync.set({ terms: nextTerms });
-    showSaved();
-  }, 350);
 });
 
 initialize();
