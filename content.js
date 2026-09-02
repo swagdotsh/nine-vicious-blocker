@@ -9,6 +9,10 @@ const BLOCKED_TERMS = [
   "B4FN",
   "FN",
   "Trevon O'Ryan Echols"
+  "Nine Victims",
+  "everdrankpurple",
+  "bitchrealextra",
+  "vicious of nine"
 ];
 
 let settings = DEFAULTS;
