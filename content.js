@@ -8,7 +8,7 @@ const BLOCKED_TERMS = [
   "B4SA",
   "B4FN",
   "FN",
-  "Trevon O'Ryan Echols"
+  "Trevon O'Ryan Echols",
   "Nine Victims",
   "everdrankpurple",
   "bitchrealextra",
